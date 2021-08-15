@@ -1,0 +1,26 @@
+{
+  "name": "@ultimicro/json-mapper",
+  "version": "1.0.0",
+  "description": "TypeScript decorators for mapping between JSON and Classes",
+  "keywords": [
+    "typescript",
+    "json",
+    "decorator"
+  ],
+  "homepage": "https://github.com/ultimicro/json-mapper",
+  "bugs": "https://github.com/ultimicro/json-mapper/issues",
+  "license": "MIT",
+  "files": [
+    "lib/**"
+  ],
+  "main": "lib/index.js",
+  "repository": "github:ultimicro/json-mapper",
+  "scripts": {},
+  "devDependencies": {
+    "reflect-metadata": "^0.1.13",
+    "typescript": "^4.3.5"
+  },
+  "peerDependencies": {
+    "reflect-metadata": "^0.1.13"
+  }
+}
