@@ -13,9 +13,15 @@
   "files": [
     "lib/**"
   ],
-  "main": "lib/index.js",
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
   "repository": "github:ultimicro/json-mapper",
-  "scripts": {},
+  "scripts": {
+    "compile": "tsc --module ES2015 --outDir lib/esm && tsc --module CommonJS --outDir lib/cjs"
+  },
+  "dependencies": {
+    "tslib": "^2.3.1"
+  },
   "devDependencies": {
     "reflect-metadata": "^0.1.13",
     "typescript": "^4.3.5"
