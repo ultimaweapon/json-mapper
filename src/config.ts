@@ -21,7 +21,7 @@ export function configClass(ctor: Constructor, conf?: ClassConfigurations): void
  */
 export function configProperty(owner: Constructor | Object, conf: PropertyConfigurations): void {
   const proto = typeof owner === 'function' ? owner.prototype : owner;
-  let set = Reflect.getMetadata(PropertiesKey, proto) as PropertyConfigurations[];
+  let set = Reflect.getOwnMetadata(PropertiesKey, proto) as PropertyConfigurations[];
 
   if (set === undefined) {
     Reflect.defineMetadata(PropertiesKey, set = [], proto);
@@ -31,7 +31,7 @@ export function configProperty(owner: Constructor | Object, conf: PropertyConfig
 }
 
 export function getClass(ctor: Constructor): ClassConfigurations | undefined {
-  return Reflect.getMetadata(ClassKey, ctor);
+  return Reflect.getOwnMetadata(ClassKey, ctor);
 }
 
 export function getProperties(proto: Object | null, stop?: Constructor): PropertyConfigurations[] {
@@ -40,7 +40,7 @@ export function getProperties(proto: Object | null, stop?: Constructor): Propert
   }
 
   // it is possible for the class to have no properties defined in that case we need to fallback to empty array
-  return [...(Reflect.getMetadata(PropertiesKey, proto) ?? []), ...getProperties(Reflect.getPrototypeOf(proto), stop)];
+  return [...(Reflect.getOwnMetadata(PropertiesKey, proto) ?? []), ...getProperties(Reflect.getPrototypeOf(proto), stop)];
 }
 
 export interface ClassConfigurations {
