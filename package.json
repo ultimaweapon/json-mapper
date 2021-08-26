@@ -17,7 +17,8 @@
   "type": "module",
   "repository": "github:ultimicro/json-mapper",
   "scripts": {
-    "compile": "rimraf lib && tsc --outDir lib"
+    "compile": "rimraf lib && tsc --outDir lib",
+    "prepare": "npm run compile"
   },
   "dependencies": {
     "tslib": "^2.3.1"
