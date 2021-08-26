@@ -4,6 +4,7 @@
   "compilerOptions": {
     "declaration": true,
     "target": "ES2015",
+    "module": "ES2015",
     "moduleResolution": "Node",
     "strict": true,
     "importHelpers": true
