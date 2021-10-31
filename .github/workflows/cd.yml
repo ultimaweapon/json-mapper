@@ -11,7 +11,9 @@ jobs:
     - name: Checkout source
       uses: actions/checkout@v2
     - name: Configure NPM
-      run: npm config set //registry.npmjs.org/:_authToken ${NPM_TOKEN}
+      run: |
+        npm config set @ultimicro:registry https://registry.npmjs.org
+        npm config set //registry.npmjs.org/:_authToken ${NPM_TOKEN}
     - name: Install dependencies
       run: npm install
     - name: Publish
