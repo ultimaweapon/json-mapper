@@ -65,7 +65,7 @@ const str = toJSON(model);
 const obj = toJSON(model, false); // invoke JSON.stringify(obj) to get JSON string
 ```
 
-## Advance usage
+## Advanced usage
 
 ### Map a class as single value instead of object
 
@@ -124,19 +124,19 @@ function getValueType(ctx: MappingContext, obj: Foo, json: JsonValue): Type | { 
     return null;
   }
 
-  // you can access all PREVIOUS properies of your class here
+  // you can access all PREVIOUS properties of your class here
   switch (typeof json) {
     case 'string':
       return String;
     case 'number':
       return Number;
     default:
-      throw new InvalidProperty(`Unknow value ${typeof json}.`, ctx.currentPath());
+      throw new InvalidProperty(`Unknown value ${typeof json}.`, ctx.currentPath());
   }
 }
 ```
 
-### Polymorephism support
+### Polymorphism support
 
 Polymorphism work by constructing a base object then invoke `getType` after mapping is completed to get a constructor of the real value, which will
 get invoked afterward and map all remaining properties. Then the properties of the base object will be moved to the real value except if it is marked
@@ -163,7 +163,7 @@ abstract class Base implements PolymorphismObject {
       case ValueType.Bar:
         return Bar;
       default:
-        throw new InvalidProperty(`Unknow type ${this.type}.`, ctx.pathFor('type'));
+        throw new InvalidProperty(`Unknown type ${this.type}.`, ctx.pathFor('type'));
     }
   }
 
