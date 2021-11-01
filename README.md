@@ -124,14 +124,14 @@ function getValueType(ctx: MappingContext, obj: Foo, json: JsonValue): Type | { 
     return null;
   }
 
-  // you can access all PREVIOUS properies of your class here
+  // you can access all PREVIOUS properties of your class here
   switch (typeof json) {
     case 'string':
       return String;
     case 'number':
       return Number;
     default:
-      throw new InvalidProperty(`Unknow value ${typeof json}.`, ctx.currentPath());
+      throw new InvalidProperty(`Unknown value ${typeof json}.`, ctx.currentPath());
   }
 }
 ```
@@ -163,7 +163,7 @@ abstract class Base implements PolymorphismObject {
       case ValueType.Bar:
         return Bar;
       default:
-        throw new InvalidProperty(`Unknow type ${this.type}.`, ctx.pathFor('type'));
+        throw new InvalidProperty(`Unknown type ${this.type}.`, ctx.pathFor('type'));
     }
   }
 
