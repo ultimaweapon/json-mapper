@@ -136,7 +136,7 @@ function getValueType(ctx: MappingContext, obj: Foo, json: JsonValue): Type | { 
 }
 ```
 
-### Polymorephism support
+### Polymorphism support
 
 Polymorphism work by constructing a base object then invoke `getType` after mapping is completed to get a constructor of the real value, which will
 get invoked afterward and map all remaining properties. Then the properties of the base object will be moved to the real value except if it is marked
