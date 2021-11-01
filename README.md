@@ -124,7 +124,7 @@ function getValueType(ctx: MappingContext, obj: Foo, json: JsonValue): Type | { 
     return null;
   }
 
-  // you can access all PREVIOUS properies of your class here
+  // you can access all PREVIOUS properties of your class here
   switch (typeof json) {
     case 'string':
       return String;
