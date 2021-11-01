@@ -163,7 +163,7 @@ abstract class Base implements PolymorphismObject {
       case ValueType.Bar:
         return Bar;
       default:
-        throw new InvalidProperty(`Unknow type ${this.type}.`, ctx.pathFor('type'));
+        throw new InvalidProperty(`Unknown type ${this.type}.`, ctx.pathFor('type'));
     }
   }
 
