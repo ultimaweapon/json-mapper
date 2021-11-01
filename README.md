@@ -65,7 +65,7 @@ const str = toJSON(model);
 const obj = toJSON(model, false); // invoke JSON.stringify(obj) to get JSON string
 ```
 
-## Advance usage
+## Advanced usage
 
 ### Map a class as single value instead of object
 
