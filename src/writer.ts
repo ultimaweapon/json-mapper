@@ -63,6 +63,8 @@ function convertFrom(ctx: Context, value: unknown): unknown {
         return convertFromArray(ctx, value);
       } else if (value instanceof Date) {
         return value;
+      } else if (value instanceof Map) {
+        return convertFromMap(ctx, value);
       } else {
         return convertFromObject(ctx, value);
       }
@@ -81,6 +83,22 @@ function convertFromArray(ctx: Context, value: Array<unknown>): Array<unknown> {
   }
 
   return r;
+}
+
+function convertFromMap(ctx: Context, value: Map<unknown, unknown>): object {
+  const res: any = {};
+
+  for (const [k, v] of value) {
+    if (typeof k !== 'string') {
+      throw new InvalidProperty(`Type of map key other than string is not supported yet.`, ctx.currentPath());
+    }
+
+    ctx.push(k);
+    res[k] = convertFrom(ctx, v);
+    ctx.pop();
+  }
+
+  return res;
 }
 
 function convertFromObject(ctx: Context, value: object): unknown {

@@ -35,13 +35,17 @@ class Foo {
   @JsonProperty({ args: [String] })
   v3: string[];
 
-  @JsonProperty({ optional: true })
-  v4?: Date;
+  @JsonProperty({ args: [Date] })
+  v4: Map<string, Date>;
 
-  constructor(v1: string, v2: number | null, v3: string[]) {
+  @JsonProperty({ optional: true })
+  v5?: Date;
+
+  constructor(v1: string, v2: number | null, v3: string[], v4: Map<string, Date>) {
     this.v1 = v1;
     this.v2 = v2;
     this.v3 = v3;
+    this.v4 = v4;
   }
 }
 ```

@@ -317,16 +317,216 @@ export function fromJSON<T>(json: JsonValue, type: ArrayConstructor, elem: new(.
  * @throws {MappingError} The value cannot converted.
  */
 export function fromJSON<T>(json: JsonValue, type: ArrayConstructor, elem: new(...args: any[]) => T, allowNull: true): Array<T | null>;
-export function fromJSON(json: JsonValue, type: Constructor | null, opt1?: boolean | null | Constructor, opt2?: boolean): unknown {
+
+/**
+ * Convert JSON value to the instance of the specified type according to its mapping configurations.
+ *
+ * @param json JSON value to convert.
+ * @param type Type to convert to.
+ * @param key Type of key.
+ * @param value Type of value.
+ *
+ * @returns The converted value.
+ * @throws {MappingError} The value cannot converted.
+ */
+export function fromJSON(json: JsonValue, type: MapConstructor, key: StringConstructor, value: null): Map<string, null>;
+
+/**
+ * Convert JSON value to the instance of the specified type according to its mapping configurations.
+ *
+ * @param json JSON value to convert.
+ * @param type Type to convert to.
+ * @param key Type of key.
+ * @param value Type of value.
+ *
+ * @returns The converted value.
+ * @throws {MappingError} The value cannot converted.
+ */
+export function fromJSON(json: JsonValue, type: MapConstructor, key: StringConstructor, value: BooleanConstructor): Map<string, boolean>;
+
+/**
+ * Convert JSON value to the instance of the specified type according to its mapping configurations.
+ *
+ * @param json JSON value to convert.
+ * @param type Type to convert to.
+ * @param key Type of key.
+ * @param value Type of value.
+ * @param allowNull false to disallow null in the value; otherwise true.
+ *
+ * @returns The converted value.
+ * @throws {MappingError} The value cannot converted.
+ */
+export function fromJSON(json: JsonValue, type: MapConstructor, key: StringConstructor, value: BooleanConstructor, allowNull: false): Map<string, boolean>;
+
+/**
+ * Convert JSON value to the instance of the specified type according to its mapping configurations.
+ *
+ * @param json JSON value to convert.
+ * @param type Type to convert to.
+ * @param key Type of key.
+ * @param value Type of value.
+ * @param allowNull false to disallow null in the value; otherwise true.
+ *
+ * @returns The converted value.
+ * @throws {MappingError} The value cannot converted.
+ */
+export function fromJSON(
+  json: JsonValue,
+  type: MapConstructor,
+  key: StringConstructor,
+  value: BooleanConstructor,
+  allowNull: true): Map<string, boolean | null>;
+
+/**
+ * Convert JSON value to the instance of the specified type according to its mapping configurations.
+ *
+ * @param json JSON value to convert.
+ * @param type Type to convert to.
+ * @param key Type of key.
+ * @param value Type of value.
+ *
+ * @returns The converted value.
+ * @throws {MappingError} The value cannot converted.
+ */
+export function fromJSON(json: JsonValue, type: MapConstructor, key: StringConstructor, value: NumberConstructor): Map<string, number>;
+
+/**
+ * Convert JSON value to the instance of the specified type according to its mapping configurations.
+ *
+ * @param json JSON value to convert.
+ * @param type Type to convert to.
+ * @param key Type of key.
+ * @param value Type of value.
+ * @param allowNull false to disallow null in the value; otherwise true.
+ *
+ * @returns The converted value.
+ * @throws {MappingError} The value cannot converted.
+ */
+export function fromJSON(json: JsonValue, type: MapConstructor, key: StringConstructor, value: NumberConstructor, allowNull: false): Map<string, number>;
+
+/**
+ * Convert JSON value to the instance of the specified type according to its mapping configurations.
+ *
+ * @param json JSON value to convert.
+ * @param type Type to convert to.
+ * @param key Type of key.
+ * @param value Type of value.
+ * @param allowNull false to disallow null in the value; otherwise true.
+ *
+ * @returns The converted value.
+ * @throws {MappingError} The value cannot converted.
+ */
+export function fromJSON(json: JsonValue, type: MapConstructor, key: StringConstructor, value: NumberConstructor, allowNull: true): Map<string, number | null>;
+
+/**
+ * Convert JSON value to the instance of the specified type according to its mapping configurations.
+ *
+ * @param json JSON value to convert.
+ * @param type Type to convert to.
+ * @param key Type of key.
+ * @param value Type of value.
+ *
+ * @returns The converted value.
+ * @throws {MappingError} The value cannot converted.
+ */
+export function fromJSON(json: JsonValue, type: MapConstructor, key: StringConstructor, value: StringConstructor): Map<string, string>;
+
+/**
+ * Convert JSON value to the instance of the specified type according to its mapping configurations.
+ *
+ * @param json JSON value to convert.
+ * @param type Type to convert to.
+ * @param key Type of key.
+ * @param value Type of value.
+ * @param allowNull false to disallow null in the value; otherwise true.
+ *
+ * @returns The converted value.
+ * @throws {MappingError} The value cannot converted.
+ */
+export function fromJSON(json: JsonValue, type: MapConstructor, key: StringConstructor, value: StringConstructor, allowNull: false): Map<string, string>;
+
+/**
+ * Convert JSON value to the instance of the specified type according to its mapping configurations.
+ *
+ * @param json JSON value to convert.
+ * @param type Type to convert to.
+ * @param key Type of key.
+ * @param value Type of value.
+ * @param allowNull false to disallow null in the value; otherwise true.
+ *
+ * @returns The converted value.
+ * @throws {MappingError} The value cannot converted.
+ */
+export function fromJSON(json: JsonValue, type: MapConstructor, key: StringConstructor, value: StringConstructor, allowNull: true): Map<string, string | null>;
+
+/**
+ * Convert JSON value to the instance of the specified type according to its mapping configurations.
+ *
+ * @param json JSON value to convert.
+ * @param type Type to convert to.
+ * @param key Type of key.
+ * @param value Type of value.
+ *
+ * @returns The converted value.
+ * @throws {MappingError} The value cannot converted.
+ */
+export function fromJSON<T>(json: JsonValue, type: MapConstructor, key: StringConstructor, value: new(...args: any[]) => T): Map<string, T>;
+
+/**
+ * Convert JSON value to the instance of the specified type according to its mapping configurations.
+ *
+ * @param json JSON value to convert.
+ * @param type Type to convert to.
+ * @param key Type of key.
+ * @param value Type of value.
+ * @param allowNull false to disallow null in the value; otherwise true.
+ *
+ * @returns The converted value.
+ * @throws {MappingError} The value cannot converted.
+ */
+export function fromJSON<T>(json: JsonValue, type: MapConstructor, key: StringConstructor, value: new(...args: any[]) => T, allowNull: false): Map<string, T>;
+
+/**
+ * Convert JSON value to the instance of the specified type according to its mapping configurations.
+ *
+ * @param json JSON value to convert.
+ * @param type Type to convert to.
+ * @param key Type of key.
+ * @param value Type of value.
+ * @param allowNull false to disallow null in the value; otherwise true.
+ *
+ * @returns The converted value.
+ * @throws {MappingError} The value cannot converted.
+ */
+export function fromJSON<T>(
+  json: JsonValue,
+  type: MapConstructor,
+  key: StringConstructor,
+  value: new(...args: any[]) => T,
+  allowNull: true): Map<string, T | null>;
+
+export function fromJSON(
+  json: JsonValue,
+  type: Constructor | null,
+  opt1?: boolean | null | Constructor,
+  opt2?: boolean | null | Constructor,
+  opt3?: boolean): unknown {
   let t: Type;
   let o: Options;
 
-  if (opt1 === null || typeof opt1 === 'function') {
-    t = [Array, [opt1]];
+  if (type === Array) {
+    t = [type, [opt1 as null | Constructor]];
     o = { required: true };
 
     if (typeof opt2 === 'boolean') {
-      t[1] = [{ type: opt1, required: !opt2 }];
+      t[1][0] = { type: opt1 as null | Constructor, required: !opt2 };
+    }
+  } else if (type === Map) {
+    t = [type, [opt1 as Constructor, opt2 as null | Constructor]];
+    o = { required: true };
+
+    if (typeof opt3 === 'boolean') {
+      t[1][1] = { type: opt2 as null | Constructor, required: !opt3 };
     }
   } else {
     t = type;
@@ -374,6 +574,15 @@ function convertTo(ctx: Context, json: JsonValue | undefined, type: Type, option
       }
 
       return convertToArray(ctx, json, e);
+    } else if (type[0] === Map) {
+      const k = type[1][0];
+      const v = type[1][1];
+
+      if (k === undefined || v === undefined) {
+        throw new InvalidProperty("No type arguments is provided. Did you forgot to specify 'args' option?", ctx.currentPath());
+      }
+
+      return convertToMap(ctx, json, k, v);
     } else {
       return convertToObject(ctx, json, type);
     }
@@ -446,6 +655,40 @@ function convertToArray(ctx: Context, json: JsonScalar | JsonObject | JsonArray,
   }
 
   return v;
+}
+
+function convertToMap(ctx: Context, json: JsonScalar | JsonObject | JsonArray, key: TypeArgument, val: TypeArgument): Map<unknown, unknown> {
+  // check json
+  if (typeof json !== 'object') {
+    throw new InvalidProperty(`Expect object, got ${typeof json}.`, ctx.currentPath());
+  } else if (Array.isArray(json)) {
+    throw new InvalidProperty('Expect object, got array.', ctx.currentPath());
+  }
+
+  // enumerate json object
+  const res = new Map<unknown, unknown>();
+  let t;
+  let o: Options;
+
+  if (val === null || typeof val === 'function' || Array.isArray(val)) {
+    t = val;
+    o = { required: true };
+  } else {
+    t = val.type;
+    o = { required: val.required };
+  }
+
+  for (const k in json) {
+    if (key !== String) {
+      throw new InvalidProperty(`Type of map key other than string is not supported yet.`, ctx.currentPath());
+    }
+
+    ctx.push(k);
+    res.set(k, convertTo(ctx, json[k], t, o));
+    ctx.pop();
+  }
+
+  return res;
 }
 
 function convertToObject(ctx: Context, json: JsonScalar | JsonObject | JsonArray, type: Constructor | GenericClass, base?: Constructor): object {
