@@ -1,4 +1,5 @@
 # TypeScript decorators for mapping between JSON and Classes
+[![npm (scoped)](https://img.shields.io/npm/v/@ultimicro/json-mapper)](https://www.npmjs.com/package/@ultimicro/json-mapper)
 
 This is a powerful utility to convert and validate JSON value for TypeScript. The main purposes of this library is to enforce JSON schemas and make it
 able to use `instanceof` to determine the type of JSON value.
