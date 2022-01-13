@@ -1,6 +1,6 @@
 {
   "name": "@ultimicro/json-mapper",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "TypeScript decorators for mapping between JSON and Classes",
   "keywords": [
     "typescript",
