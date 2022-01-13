@@ -231,3 +231,11 @@ class Bar {
   }
 }
 ```
+
+## Development
+
+### Running unit tests
+
+```sh
+npm test
+```

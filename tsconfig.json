@@ -1,6 +1,6 @@
 {
   "include": ["src/**/*"],
-  "exclude": ["lib", "node_modules"],
+  "exclude": ["lib", "node_modules", "src/**/*.spec.ts"],
   "compilerOptions": {
     "declaration": true,
     "target": "ES2015",
