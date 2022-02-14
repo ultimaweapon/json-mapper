@@ -466,6 +466,25 @@ export function fromJSON(json: JsonValue, type: MapConstructor, key: StringConst
  * @param type Type to convert to.
  * @param key Type of key.
  * @param value Type of value.
+ * @param elem Type of value's element.
+ *
+ * @returns The converted value.
+ * @throws {MappingError} The value cannot converted.
+ */
+export function fromJSON(
+  json: JsonValue,
+  type: MapConstructor,
+  key: StringConstructor,
+  value: ArrayConstructor,
+  elem: StringConstructor): Map<string, string[]>;
+
+/**
+ * Convert JSON value to the instance of the specified type according to its mapping configurations.
+ *
+ * @param json JSON value to convert.
+ * @param type Type to convert to.
+ * @param key Type of key.
+ * @param value Type of value.
  *
  * @returns The converted value.
  * @throws {MappingError} The value cannot converted.
@@ -510,7 +529,7 @@ export function fromJSON(
   type: Constructor | null,
   opt1?: boolean | null | Constructor,
   opt2?: boolean | null | Constructor,
-  opt3?: boolean): unknown {
+  opt3?: boolean | Constructor): unknown {
   let t: Type;
   let o: Options;
 
@@ -522,11 +541,14 @@ export function fromJSON(
       t[1][0] = { type: opt1 as null | Constructor, required: !opt2 };
     }
   } else if (type === Map) {
-    t = [type, [opt1 as Constructor, opt2 as null | Constructor]];
     o = { required: true };
 
-    if (typeof opt3 === 'boolean') {
-      t[1][1] = { type: opt2 as null | Constructor, required: !opt3 };
+    if (opt2 === Array) {
+      t = [type, [opt1 as Constructor, [opt2, [opt3 as Constructor]]]];
+    } else if (typeof opt3 === 'boolean') {
+      t = [type, [opt1 as Constructor, { type: opt2 as null | Constructor, required: !opt3 }]];
+    } else {
+      t = [type, [opt1 as Constructor, opt2 as null | Constructor]];
     }
   } else {
     t = type;

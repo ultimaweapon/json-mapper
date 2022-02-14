@@ -9,4 +9,11 @@ describe('fromJSON', function () {
     assert.hasAllKeys(r, ['foo']);
     assert.strictEqual(r.get('foo'), 123);
   });
+  it('should return a map of arrays when value is ArrayConstructor', function () {
+    const r = fromJSON({ foo: ['bar', 'baz'] }, Map, String, Array, String);
+
+    assert.instanceOf(r, Map);
+    assert.hasAllKeys(r, ['foo']);
+    assert.deepEqual(r.get('foo'), ['bar', 'baz']);
+  });
 });
